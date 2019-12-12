@@ -12,9 +12,9 @@ import java.util.Scanner;
  * @author carlos
  */
 public class Interfaz {
-    private Scanner lector = new Scanner(System.in);
+    private static final Scanner LECTOR = new Scanner(System.in);
     
-    public String menuRaiz(){
+    public static String menuRaiz(){
         System.out.println("Bienvenido a la máquina de café Daw Coffee, donde servimos los mejores cafés del mundo.\nElija una bebida:");
         System.out.printf("%-20s%-20s%-20s\n","00001A","Leche","Poco azúcar");
         System.out.printf("%-20s%-20s%-20s\n","00010A","Leche","Medio azúcar");
@@ -23,7 +23,7 @@ public class Interfaz {
         System.out.printf("%-20s%-20s%-20s\n","0344127","Marco","Antonio");
         System.out.printf("%-20s%-20s%-20s\n","9532114","Juan","Fernando");
         
-        System.out.print("Seleccione un número: ");
-        return lector.next();
+        System.out.print("Seleccione un producto: ");
+        return LECTOR.next();
     }
 }
