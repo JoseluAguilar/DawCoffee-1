@@ -5,10 +5,25 @@
  */
 package com.carlos.dawcoffee;
 
+import java.util.Scanner;
+
 /**
  *
  * @author carlos
  */
 public class Interfaz {
+    private Scanner lector = new Scanner(System.in);
     
+    public String menuRaiz(){
+        System.out.println("Bienvenido a la máquina de café Daw Coffee, donde servimos los mejores cafés del mundo.\nElija una bebida:");
+        System.out.printf("%-20s%-20s%-20s\n","00001A","Leche","Poco azúcar");
+        System.out.printf("%-20s%-20s%-20s\n","00010A","Leche","Medio azúcar");
+        System.out.printf("%-20s%-20s%-20s\n","00011A","Leche","Mucho azúcar");
+        System.out.printf("%-20s%-20s%-20s\n","10000A","Chocolate","Poco azúcar");
+        System.out.printf("%-20s%-20s%-20s\n","0344127","Marco","Antonio");
+        System.out.printf("%-20s%-20s%-20s\n","9532114","Juan","Fernando");
+        
+        System.out.print("Seleccione un número: ");
+        return lector.next();
+    }
 }
