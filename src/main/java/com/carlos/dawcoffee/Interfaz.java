@@ -12,8 +12,10 @@ import java.util.Scanner;
  * @author carlos
  */
 public class Interfaz {
+    // Creamos una constante que contenga el Scanner que usaremos para leer información
     private static final Scanner LECTOR = new Scanner(System.in);
     
+    // Creamos un método para el menú principal
     public static String menuRaiz(){
         System.out.println("Bienvenido a la máquina de café Daw Coffee, donde servimos los mejores cafés del mundo.\nElija una bebida:");
         System.out.printf("%-20s%-20s%-20s\n","00001A","Leche","Poco azúcar");
