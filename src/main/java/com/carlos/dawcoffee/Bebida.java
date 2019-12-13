@@ -47,7 +47,7 @@ public class Bebida {
 
     @Override
     public String toString() {
-        return "La bebida " + this.nombre + " tiene el código " + this.codigo + " y cuesta " + this.precio;
+        return "La bebida " + "\"" + this.nombre + "\"" + " tiene el código " + this.codigo + " y cuesta " + this.precio + "€";
     }
     
 
