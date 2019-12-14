@@ -10,25 +10,23 @@ package com.carlos.dawcoffee;
  * @author carlos
  */
 public class Cafetera {
-    private double saldoAcumulado = 0;
-    private double saldoCliente;
-    private double ventasRealizadas = 0;
-    private double nVentasRealizadas;
-    
-    
 
-    
+    private double saldoAcumulado;
+    private double saldoCliente;
+    private double ventasRealizadas;
+    private double nVentasRealizadas;
+
     // Creamos un constructor por defecto. No necesitaremos un constructor parametrizado
-    
-    public Cafetera(){
-        
+    public Cafetera() {
+
     }
-    public String seleccionarBebida(String codigo){
+
+    public String seleccionarBebida(String codigo) {
         double price = 0;
         String name = null;
         String code = null;
-        switch(codigo){
-            
+        switch (codigo) {
+
             case "00001A":
                 price = 0.5;
                 name = "Leche sin azúcar";
@@ -52,6 +50,39 @@ public class Cafetera {
         }
         Bebida bebida = new Bebida(price, code, name);
         return bebida.toString();
+
+    }
+
+    public double getSaldoAcumulado() {
+        return saldoAcumulado;
+    }
+
+    public void setSaldoAcumulado(double saldoAcumulado) {
+        this.saldoAcumulado = saldoAcumulado;
+    }
+
+    public double getSaldoCliente() {
+        return saldoCliente;
+    }
+
+    public void setSaldoCliente(double saldoCliente) {
+        this.saldoCliente = saldoCliente;
+    }
+
+    public double getVentasRealizadas() {
+        return ventasRealizadas;
+    }
+
+    public void setVentasRealizadas(double ventasRealizadas) {
+        this.ventasRealizadas = ventasRealizadas;
+    }
+
+    public double getnVentasRealizadas() {
+        return nVentasRealizadas;
+    }
+
+    public void setnVentasRealizadas(double nVentasRealizadas) {
+        this.nVentasRealizadas = nVentasRealizadas;
     }
 
 }
