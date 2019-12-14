@@ -49,8 +49,14 @@ public class Cafetera {
                 return "La bebida seleccionada no existe, por favor, introduce una válida";
         }
         Bebida bebida = new Bebida(price, code, name);
-        return bebida.toString();
-
+        System.out.println(bebida.toString()); 
+        while(saldoCliente < price){
+            saldoCliente += Interfaz.pagar(price, saldoCliente);
+        }
+        nVentasRealizadas++;
+        saldoAcumulado += price;
+        saldoCliente = 0;
+        return "Gracias por su compra, ¡vuelva pronto!";
     }
 
     public double getSaldoAcumulado() {
