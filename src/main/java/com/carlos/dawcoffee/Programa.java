@@ -11,8 +11,15 @@ package com.carlos.dawcoffee;
  */
 public class Programa {
     public static void main(String[] args) {
+        //Creamos la cafetera
         Cafetera cafetera = new Cafetera();
-        // El método main
-        System.out.println(cafetera.seleccionarBebida(Interfaz.menuRaiz()));
+        //Mensaje de bienvenida
+        System.out.println("Bienvenido a la máquina de café Daw Coffee, donde servimos los mejores cafés del mundo.\nElija una bebida:");
+
+        //Creamos un While True para que se ejecute siempre excepto si apagamos la máquina
+        while(true){
+             // El método main
+            System.out.println(cafetera.seleccionarBebida(Interfaz.menuRaiz()));
+        }  
     }
 }
