@@ -29,7 +29,6 @@ public class Interfaz {
 
     // Creamos un método para el menú principal
     public static String menuRaiz() {
-        System.out.println("Bienvenido a la máquina de café Daw Coffee, donde servimos los mejores cafés del mundo.\nElija una bebida:");
         System.out.printf("%-20s%-20s%-20s\n", "00001A", "Leche", "Poco azúcar");
         System.out.printf("%-20s%-20s%-20s\n", "00010A", "Leche", "Medio azúcar");
         System.out.printf("%-20s%-20s%-20s\n", "00011A", "Leche", "Mucho azúcar");
@@ -44,16 +43,30 @@ public class Interfaz {
     public static void entrarComoAdministrador() {
         System.out.println(ANSI_RED + "Debes iniciar sesión para continuar" + ANSI_RESET);
         String usuario, contrasenia;
-        System.out.print("Introduzca el usuario: ");
-        usuario = LECTOR.next();
-        System.out.print("Introduzca la constraseña: ");
-        contrasenia = LECTOR.next();
-        boolean in = administrador.socket(usuario, contrasenia);
-        if (in) {
-            System.out.println("Bienvenido a la consola de administrador");
-            System.out.println(ANSI_RED + "Cuidado con los cambios que haces a partir de ahora, puede modificar el funcionamiento de la máquina" + ANSI_RESET);
-        } else {
-            System.out.println("Fallo de inicio de sesión. Inténtelo de nuevo");
+        int intentos = 0;
+        boolean logged = false;
+        while (intentos < 3 || logged) {
+            System.out.print("Introduzca el usuario: ");
+            usuario = LECTOR.next();
+            System.out.print("Introduzca la constraseña: ");
+            contrasenia = LECTOR.next();
+            boolean in = administrador.socket(usuario, contrasenia);
+            if (in) {
+                logged = true;
+                System.out.println("Bienvenido a la consola de administrador");
+                System.out.println(ANSI_RED + "Cuidado con los cambios que haces a partir de ahora, puede modificar el funcionamiento de la máquina" + ANSI_RESET);
+            } else {
+                System.out.println("Fallo de inicio de sesión. Inténtelo de nuevo");
+                intentos++;
+            }
+        }
+        if(intentos>=3){
+            System.out.println("Has fallado 3 intentos de autenticación, volverás al menú principal");
+            Interfaz.menuRaiz();
+        }
+        else{
+            logged = false;
+            Interfaz.menuRaiz();
         }
 
     }
