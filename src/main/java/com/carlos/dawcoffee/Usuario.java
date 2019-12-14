@@ -37,5 +37,16 @@ public class Usuario {
             return false;
         }
     }
+    public static void abrirSocket(boolean logged){
+        logged = true;
+    }
+    
+    public static void cerrarSocket(boolean logged, int intentos){
+        logged = false;
+        logged = true;
+    }
+    public void apagarMaquina(){
+        System.exit(0);
+    }
 
 }
