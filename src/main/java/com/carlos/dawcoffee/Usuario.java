@@ -29,9 +29,12 @@ public class Usuario {
     private void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    public void socket(String user, String passwd){
-        if((user.equals(this.usuario))||(passwd==this.contrasenia)){
-            System.out.println("Bienvenido, " + this.usuario);
+    public boolean socket(String user, String passwd){
+        if((user.equalsIgnoreCase(this.usuario))&&(passwd.equalsIgnoreCase(this.contrasenia))){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 
