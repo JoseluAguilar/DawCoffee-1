@@ -15,7 +15,7 @@ public class Interfaz {
 
     // Creamos constantes que necestaremos más adelante
     private static final Scanner LECTOR = new Scanner(System.in);
-    private static final Usuario administrador = new Usuario();
+    private static final Usuario ADMINISTRADOR = new Usuario();
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -25,7 +25,6 @@ public class Interfaz {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_RESET = "\u001B[0m";
-    //private Usuario = new Usuario();
 
     // Creamos un método para el menú principal
     public static String menuRaiz() {
@@ -40,7 +39,14 @@ public class Interfaz {
         return LECTOR.next();
     }
 
-
+    public static double pagar(double precioBebida, double dineroCliente){
+        System.out.print("Te falta por pagar ");
+        System.out.printf("%.2f", (precioBebida - dineroCliente));
+        System.out.println("€");
+        System.out.print("Introduce la cantidad de dinero que quieras pagar: ");
+        double pagado = LECTOR.nextDouble();
+        return pagado;
+    }
     
     
     public static void entrarComoAdministrador() {
@@ -53,7 +59,7 @@ public class Interfaz {
             usuario = LECTOR.next();
             System.out.print("Introduzca la constraseña: ");
             contrasenia = LECTOR.next();
-            boolean in = administrador.socket(usuario, contrasenia);
+            boolean in = ADMINISTRADOR.socket(usuario, contrasenia);
             if (in) {
                 Usuario.abrirSocket(logged);
                 System.out.println("Bienvenido a la consola de administrador");
@@ -70,7 +76,6 @@ public class Interfaz {
             System.out.println("Has fallado 3 intentos de autenticación, volverás al menú principal");
             
         }
-        Interfaz.menuRaiz();
-
+        Interfaz.menuRaiz();     
     }
 }
