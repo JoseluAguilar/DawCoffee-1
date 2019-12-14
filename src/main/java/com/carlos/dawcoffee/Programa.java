@@ -10,5 +10,9 @@ package com.carlos.dawcoffee;
  * @author carlos
  */
 public class Programa {
-    
+    public static void main(String[] args) {
+        Cafetera cafetera = new Cafetera();
+        // El método main
+        System.out.println(cafetera.seleccionarBebida(Interfaz.menuRaiz()));
+    }
 }
