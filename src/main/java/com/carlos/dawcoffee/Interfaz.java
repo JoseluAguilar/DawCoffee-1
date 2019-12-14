@@ -40,6 +40,9 @@ public class Interfaz {
         return LECTOR.next();
     }
 
+
+    
+    
     public static void entrarComoAdministrador() {
         System.out.println(ANSI_RED + "Debes iniciar sesión para continuar" + ANSI_RESET);
         String usuario, contrasenia;
@@ -52,22 +55,22 @@ public class Interfaz {
             contrasenia = LECTOR.next();
             boolean in = administrador.socket(usuario, contrasenia);
             if (in) {
-                logged = true;
+                Usuario.abrirSocket(logged);
                 System.out.println("Bienvenido a la consola de administrador");
                 System.out.println(ANSI_RED + "Cuidado con los cambios que haces a partir de ahora, puede modificar el funcionamiento de la máquina" + ANSI_RESET);
+                Usuario.cerrarSocket(logged, intentos);
             } else {
-                System.out.println("Fallo de inicio de sesión. Inténtelo de nuevo");
                 intentos++;
+                if(intentos <= 2){
+                    System.out.println("Fallo de inicio de sesión. Inténtelo de nuevo");
+                }
             }
         }
         if(intentos>=3){
             System.out.println("Has fallado 3 intentos de autenticación, volverás al menú principal");
-            Interfaz.menuRaiz();
+            
         }
-        else{
-            logged = false;
-            Interfaz.menuRaiz();
-        }
+        Interfaz.menuRaiz();
 
     }
 }
